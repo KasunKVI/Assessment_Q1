@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="20.0" prefWidth="720.0" prefHeight="480.0"
+      styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.exam.radius.controller.CalculatorController">
+
+    <padding>
+        <Insets top="30.0" right="30.0" bottom="30.0" left="30.0" />
+    </padding>
+
+    <!-- Header Section -->
+    <VBox alignment="CENTER" spacing="5.0">
+        <Label text="Radius Calculator of any given Circle" styleClass="header-title">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label text="Formula: x² + y² + 2gx + 2fy + c = 0 | Radius = √(g² + f² - c)" styleClass="header-subtitle" />
+    </VBox>
+
+    <!-- Main Card View for Equation Input -->
+    <VBox alignment="CENTER" spacing="15.0" styleClass="card-box">
+        <padding>
+            <Insets top="25.0" right="20.0" bottom="25.0" left="20.0" />
+        </padding>
+
+        <!-- Dynamic Math Equation Line -->
+        <HBox alignment="CENTER" spacing="6.0" styleClass="equation-box">
+            <Label text="x² + y² + 2" styleClass="math-text" />
+
+            <VBox alignment="CENTER" spacing="2.0">
+                <Label text="g" styleClass="variable-label" />
+                <TextField fx:id="txtG" prefWidth="65.0" promptText="g" styleClass="input-field" alignment="CENTER" />
+            </VBox>
+
+            <Label text="x + 2" styleClass="math-text" />
+
+            <VBox alignment="CENTER" spacing="2.0">
+                <Label text="f" styleClass="variable-label" />
+                <TextField fx:id="txtF" prefWidth="65.0" promptText="f" styleClass="input-field" alignment="CENTER" />
+            </VBox>
+
+            <Label text="y +" styleClass="math-text" />
+
+            <VBox alignment="CENTER" spacing="2.0">
+                <Label text="c" styleClass="variable-label" />
+                <TextField fx:id="txtC" prefWidth="65.0" promptText="c" styleClass="input-field" alignment="CENTER" />
+            </VBox>
+
+            <Label text="= 0" styleClass="math-text" />
+        </HBox>
+
+        <!-- Action Button -->
+        <HBox alignment="CENTER" spacing="12.0">
+            <Button fx:id="btnCalculate" text="Calculate" onAction="#handleCalculate" styleClass="btn-primary" prefWidth="130.0" />
+            <Button fx:id="btnClear" text="Clear" onAction="#handleClear" styleClass="btn-secondary" prefWidth="90.0" />
+        </HBox>
+
+        <!-- Radius Output Section -->
+        <HBox alignment="CENTER" spacing="15.0" styleClass="result-box">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+            </padding>
+            <Label text="Radius =" styleClass="result-label" />
+            <TextField fx:id="txtRadius" prefWidth="180.0" promptText="Result" styleClass="result-field" alignment="CENTER" />
+        </HBox>
+    </VBox>
+
+    <!-- Status Bar / Error Feedback -->
+    <Label fx:id="lblStatus" text="Ready" styleClass="status-bar" wrapText="true" alignment="CENTER" maxWidth=" Infinity" />
+</VBox>
